@@ -1,15 +1,16 @@
 # AI Evaluation Portfolio
 
-Collection of documentation artifacts demonstrating evaluation design and operational judgment in LLM/RLHF pipelines.
+Collection of documentation artifacts demonstrating evaluation design, operational judgment, and incentive analysis in LLM/RLHF pipelines.
 
 - **llm-ambiguity-eval**: Qualitative framework for detecting failure modes under ambiguity and urgency (rubric, calibration, negative examples, comparisons).
-- **evaluator-qa-escalation-playbook**: Procedural guide for maintaining quality at scale — escalation logic, throughput trade-offs, and governance basics.
+- **evaluator-qa-escalation-playbook**: Procedural guidance for maintaining quality at scale — escalation logic, throughput trade-offs, and audit safety.
+- **evaluation-economics**: Incentive and cost analysis explaining why quality drift and false helpfulness persist in evaluation systems.
 
 ---
 
 ## Overview
 
-This repository contains a focused set of documentation artifacts demonstrating **human judgment, quality control, and operational decision-making** in large-scale LLM evaluation and quality assurance workflows.
+This repository contains a focused set of documentation artifacts demonstrating **human judgment, quality control, and decision-making under constraint** in large-scale LLM evaluation and quality assurance workflows.
 
 The emphasis is not on model training, prompt engineering, or automation, but on:
 
@@ -18,6 +19,7 @@ The emphasis is not on model training, prompt engineering, or automation, but on
 - handling reviewer disagreement
 - deciding when to resolve locally vs escalate
 - preserving quality under throughput pressure
+- understanding why quality degradation is often a rational system outcome
 
 All examples are synthetic and contain no client or proprietary data.
 
@@ -59,6 +61,35 @@ This section focuses on what happens *after* a rubric exists: guideline gaps, di
 
 ---
 
+### 3. `evaluation-economics/`
+
+An analysis of **why quality degradation, false helpfulness, and evaluator disagreement persist** even when evaluators are competent and acting in good faith.
+
+Rather than treating failures as individual mistakes, this section examines evaluation pipelines as **incentive-constrained systems**.
+
+Covers:
+- Incentive misalignment in annotation and evaluation environments
+- The asymmetric cost of false helpfulness
+- Throughput pressure and its effects on judgment quality
+- Why quality drift is often a stable equilibrium
+- Practical leverage points for improving signal without moralizing or surveillance
+
+**Primary focus:** incentives, costs, and systemic behavior.
+
+---
+
+## How the Pieces Fit Together
+
+The three components form a closed loop:
+
+- **`llm-ambiguity-eval`** defines *what* evaluators should notice and how ambiguity should be scored.
+- **`evaluator-qa-escalation-playbook`** defines *how* judgment is maintained operationally under pressure.
+- **`evaluation-economics`** explains *why* those systems tend to fail without structural support.
+
+Judgment → operation → incentives.
+
+---
+
 ## Background & Intent
 
 This portfolio is informed by:
@@ -72,6 +103,7 @@ The intent is to demonstrate readiness for roles involving:
 - Reviewer or QA support
 - Escalation handling
 - Guideline refinement
+- Evaluation operations and delivery analytics
 - Trust & safety or policy-adjacent evaluation
 
 ---
@@ -85,15 +117,6 @@ The intent is to demonstrate readiness for roles involving:
 
 ---
 
-## License
-
-This repository is licensed under the **MIT License**.  
-See the root `LICENSE` file for details.
-
----
-
 ## Feedback
 
 Feedback from practitioners working in LLM evaluation, QA, annotation operations, or trust & safety is welcome.
-
-
