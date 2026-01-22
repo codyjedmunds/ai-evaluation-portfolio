@@ -117,10 +117,3 @@ This template supports:
 - QA review and audit processes
 
 It is intended to make evaluator judgment **traceable, not performative**.
-
----
-
-## License
-
-Licensed under the MIT License.  
-See the root `LICENSE` file for details.
