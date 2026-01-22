@@ -231,15 +231,7 @@ Failure classification should inform, not replace, escalation decisions.
 - It does not prescribe disciplinary action.
 - It is intended to evolve as new failure modes surface.
 
----
-
-## License
-
-Licensed under the MIT License.  
-See the root `LICENSE` file for details.
-
----
-
 ## Feedback
 
 Suggestions for additional failure modes or refinements are welcome from practitioners working in LLM evaluation, QA, or annotation operations.
+
