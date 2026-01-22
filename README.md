@@ -9,7 +9,7 @@ Collection of documentation artifacts demonstrating evaluation design and operat
 
 ## Overview
 
-This repository contains a focused set of documentation artifacts demonstrating **human judgment, quality control, and operational decision-making** in large-scale LLM evaluation and annotation workflows.
+This repository contains a focused set of documentation artifacts demonstrating **human judgment, quality control, and operational decision-making** in large-scale LLM evaluation and quality assurance workflows.
 
 The emphasis is not on model training, prompt engineering, or automation, but on:
 
@@ -95,4 +95,5 @@ See the root `LICENSE` file for details.
 ## Feedback
 
 Feedback from practitioners working in LLM evaluation, QA, annotation operations, or trust & safety is welcome.
+
 
