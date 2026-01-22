@@ -1,0 +1,126 @@
+# Reviewer Notes Template
+
+This template provides a lightweight, standardized structure for documenting non-trivial evaluation decisions, QA feedback, and escalation rationale.
+
+Its purpose is to support **clarity, consistency, and audit safety** without introducing unnecessary documentation overhead.
+
+---
+
+## When to Use This Template
+
+Use this template when:
+- an issue is ambiguous or precedent-setting
+- a decision required interpretation beyond trivial rubric application
+- an issue is flagged for QA review
+- an issue is escalated for guideline clarification
+
+Do **not** use this template for routine, low-impact cases.
+
+---
+
+## Reviewer Notes
+
+### 1. Issue Summary
+Briefly describe the issue observed.
+
+- What was unclear, conflicted, or noteworthy?
+- Avoid restating the entire model output.
+- Focus on the decision-relevant aspect.
+
+> _Example:_  
+> Output partially satisfies intent but conflicts with instruction ordering; rubric does not specify priority.
+
+---
+
+### 2. Issue Classification
+Select the primary issue type.
+
+- ☐ Rubric ambiguity  
+- ☐ Partial correctness  
+- ☐ Conflicting instructions  
+- ☐ Model non-responsiveness / refusal  
+- ☐ Evaluator uncertainty without rubric conflict  
+- ☐ Other (specify)
+
+(Optional) Reference relevant evaluator failure mode if applicable.
+
+---
+
+### 3. Resolution Path
+Indicate the chosen handling path.
+
+- ☐ Resolved locally  
+- ☐ Flagged for QA review  
+- ☐ Escalated for guideline clarification  
+
+If escalated or flagged, briefly note why local resolution was insufficient.
+
+---
+
+### 4. Rationale
+Provide a concise justification for the decision.
+
+- Reference rubric intent, not just surface phrasing
+- Note any competing interpretations considered
+- Avoid absolute language where ambiguity persists
+
+Aim for clarity, not exhaustiveness.
+
+---
+
+### 5. Confidence Level
+Indicate confidence in the chosen resolution.
+
+- ☐ High — rubric clearly supports the decision  
+- ☐ Medium — reasonable interpretation with minor ambiguity  
+- ☐ Low — ambiguity remains; guidance required  
+
+Confidence level is informational and does not imply correctness.
+
+---
+
+### 6. Downstream Impact (if applicable)
+Note any potential downstream effects if the issue were handled differently.
+
+- precedent-setting implications
+- aggregation or training signal impact
+- consistency risk across evaluators
+
+Leave blank if impact is minimal.
+
+---
+
+### 7. Notes for Follow-Up (optional)
+Use for:
+- questions to guideline owners
+- patterns noticed across samples
+- suggestions for rubric clarification
+
+Avoid speculative or prescriptive language.
+
+---
+
+## Guidance
+
+- Be concise. Most notes should fit on one screen.
+- Do not over-document routine cases.
+- Do not suppress uncertainty to appear confident.
+- Documentation quality matters more than length.
+
+---
+
+## Relationship to Other Documents
+
+This template supports:
+- `resolve_vs_escalate_flow.md`
+- `failure_taxonomy.md`
+- QA review and audit processes
+
+It is intended to make evaluator judgment **traceable, not performative**.
+
+---
+
+## License
+
+Licensed under the MIT License.  
+See the root `LICENSE` file for details.

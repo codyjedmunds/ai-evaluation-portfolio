@@ -1,0 +1,135 @@
+# Case Studies
+
+This document provides a small set of **synthetic case studies** illustrating how ambiguity, disagreement, and escalation decisions are handled in practice.
+
+The purpose of these examples is not to exhaustively cover all edge cases, but to demonstrate **judgment under constraint** and correct use of the evaluation playbook.
+
+All scenarios are fictional and contain no client or proprietary data.
+
+---
+
+## Case Study 1: Partial Correctness with Competing Interpretations
+
+### Scenario
+A model response addresses the core intent of the prompt but omits a secondary constraint specified late in the instructions.
+
+The rubric includes criteria for both intent satisfaction and instruction adherence but does not specify priority when the two conflict.
+
+### Observations
+- The response is materially useful.
+- The omission is non-trivial but not catastrophic.
+- Reasonable evaluators disagree on whether the omission constitutes failure.
+
+### Handling
+- **Issue classification:** Partial correctness / rubric ambiguity  
+- **Resolution path:** Flagged for QA review  
+- **Rationale:**  
+  The rubric does not specify precedence between intent satisfaction and late-stage constraints. Local resolution would implicitly set precedent.
+
+### Outcome
+- QA review confirms ambiguity.
+- Guidance is added clarifying instruction priority.
+- Future cases are resolved locally using updated guidance.
+
+---
+
+## Case Study 2: Ambiguity Preserved Without Escalation
+
+### Scenario
+A model response provides a high-level answer to an underspecified prompt. The response could be interpreted as either appropriately cautious or insufficiently detailed.
+
+The rubric allows evaluators to score based on “appropriateness to prompt specificity.”
+
+### Observations
+- Ambiguity is inherent to the prompt.
+- The rubric supports qualified judgment.
+- No downstream aggregation risk is identified.
+
+### Handling
+- **Issue classification:** Evaluator uncertainty without rubric conflict  
+- **Resolution path:** Resolved locally  
+- **Rationale:**  
+  The rubric explicitly allows evaluators to account for prompt underspecification. Ambiguity is acknowledged in the rationale rather than escalated.
+
+### Outcome
+- The case is documented with medium confidence.
+- No escalation is required.
+- Signal is preserved without forcing resolution.
+
+---
+
+## Case Study 3: Precedent Risk Triggering Escalation
+
+### Scenario
+Multiple evaluators encounter a recurring pattern where the model produces technically correct but stylistically evasive responses.
+
+The rubric addresses correctness but is silent on evasiveness.
+
+### Observations
+- Individually, each case is resolvable.
+- Collectively, the pattern suggests a gap.
+- Local resolutions vary across evaluators.
+
+### Handling
+- **Issue classification:** Rubric ambiguity / recurring pattern  
+- **Resolution path:** Escalated for guideline clarification  
+- **Rationale:**  
+  While individual cases could be resolved, inconsistent handling across samples introduces drift. Escalation is warranted due to systemic impact.
+
+### Outcome
+- Guideline owners introduce clarifying language.
+- Evaluator consistency improves.
+- Escalation frequency decreases.
+
+---
+
+## Case Study 4: Escalation Avoided Through Peer Alignment
+
+### Scenario
+An evaluator encounters a borderline refusal case and considers escalation.
+
+A peer calibration check reveals consistent prior handling of similar cases.
+
+### Observations
+- The rubric is sufficient but non-obvious.
+- Confidence increases after peer alignment.
+- No new precedent is set.
+
+### Handling
+- **Issue classification:** Evaluator uncertainty  
+- **Resolution path:** Resolved locally after peer check  
+- **Rationale:**  
+  Peer alignment confirms rubric-consistent handling. Escalation is unnecessary.
+
+### Outcome
+- Throughput is preserved.
+- Documentation remains minimal.
+- Confidence is appropriately adjusted.
+
+---
+
+## Notes
+
+These cases illustrate that:
+- Escalation is proportional, not automatic
+- Ambiguity can be preserved without paralysis
+- Systemic patterns matter more than isolated discomfort
+- Peer alignment can reduce unnecessary escalation
+
+---
+
+## Relationship to Other Documents
+
+These case studies demonstrate practical application of:
+- `resolve_vs_escalate_flow.md`
+- `failure_taxonomy.md`
+- `reviewer_notes_template.md`
+- `quality_vs_throughput.md`
+- `governance_and_audit_safety.md`
+
+---
+
+## License
+
+Licensed under the MIT License.  
+See the root `LICENSE` file for details.
