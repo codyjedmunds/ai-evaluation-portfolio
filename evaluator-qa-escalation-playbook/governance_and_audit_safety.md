@@ -308,25 +308,12 @@ It defines \*\*procedural sufficiency\*\*, not behavioral control.
 
 
 
-\## License
-
-
-
-Licensed under the MIT License.  
-
-See the root `LICENSE` file for details.
-
-
-
----
-
-
-
 \## Feedback
 
 
 
 Feedback from practitioners involved in QA, audit, governance, or trust \& safety is welcome.
+
 
 
 
