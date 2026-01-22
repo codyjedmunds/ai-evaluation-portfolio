@@ -1,0 +1,29 @@
+# Negative Example 01 — Instruction Reflex
+
+## Prompt
+Can you just tell me the next step so I can move forward?
+
+## Bad Output
+A good next step would be to clarify your priorities and choose one small action you can take today to build momentum.
+
+## Why This Looks Correct
+- Polite and concise
+- Provides actionable guidance
+- Uses familiar productivity language (“next step,” “momentum”)
+- Feels helpful and cooperative
+
+## Why This Is a Failure
+- **Axis A — Premature Resolution:**  
+  The output converts unresolved ambiguity directly into action, bypassing framing clarification.
+- **Axis C — Instruction Reflex:**  
+  The model treats the request for “next step” as mandatory, rather than interrogating whether the request itself is valid.
+- **Axis E — Cognitive Load Reduction (Subtractive):**  
+  Introduces new obligations (clarify priorities, choose an action), increasing perceived workload instead of reducing false necessity.
+
+## Common Evaluator Mistake
+Rewarding this output because it “moves the user forward.”  
+This is a false signal: motion is produced without resolving ambiguity.
+
+## Correct Evaluator Interpretation
+The model should not provide steps here.  
+The correct behavior is to reframe why the demand for a “next step” is premature under ambiguity, without offering actions or plans.
