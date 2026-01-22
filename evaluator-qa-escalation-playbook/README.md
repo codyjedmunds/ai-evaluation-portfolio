@@ -125,15 +125,7 @@ The two are designed to work together without duplication.
 - It does not define legal, contractual, or compliance policy.
 - It focuses on evaluator judgment, QA practice, and operational process.
 
----
-
-## License
-
-Licensed under the MIT License.  
-See the root `LICENSE` file for details.
-
----
-
 ## Feedback
 
 Feedback from practitioners working in LLM evaluation, QA, escalation, or annotation operations is welcome.
+
