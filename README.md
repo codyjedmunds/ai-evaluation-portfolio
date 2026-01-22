@@ -27,7 +27,7 @@ All examples are synthetic and contain no client or proprietary data.
 
 ### 1. `llm-ambiguity-eval/`
 
-A qualitative evaluation framework for identifying and scoring LLM failure modes when instructions are incomplete, conflicting, or time-pressured.
+A qualitative evaluation framework for identifying and scoring LLM failure modes when instructions are incomplete, conflicting, shifting, or time-pressured.
 
 Includes:
 - A structured evaluation rubric
@@ -95,3 +95,4 @@ See the root `LICENSE` file for details.
 ## Feedback
 
 Feedback from practitioners working in LLM evaluation, QA, annotation operations, or trust & safety is welcome.
+
