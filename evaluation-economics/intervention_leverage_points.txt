@@ -1,0 +1,185 @@
+# Intervention Leverage Points
+
+This document outlines **practical intervention points** for improving evaluation quality in LLM systems without relying on evaluator heroics, moral pressure, or surveillance.
+
+The guiding assumption is simple:
+
+> If quality degradation is rational under existing incentives, then durable improvement must change the structure of those incentives—not the character of the people operating within them.
+
+The interventions below focus on **small structural changes** with disproportionate effects on signal preservation.
+
+---
+
+## Design Principles
+
+Effective interventions share several properties:
+
+- They reduce evaluator risk rather than increase scrutiny
+- They make good judgment easier, not merely expected
+- They operate locally rather than globally
+- They preserve throughput where possible by targeting fragile judgment faculties
+- They avoid framing evaluators as the problem
+
+Interventions that violate these principles tend to produce short-lived improvements followed by new forms of drift.
+
+---
+
+## 1. Uncertainty as a First-Class Signal
+
+### Problem
+Uncertainty is often treated as:
+- indecision
+- low confidence
+- poor performance
+
+This incentivizes premature resolution.
+
+### Intervention
+Explicitly reward *appropriate uncertainty* in ambiguous cases.
+
+Examples:
+- Allow “insufficient information” or “multiple plausible interpretations” to score positively
+- Distinguish between uncertainty and non-responsiveness
+- Calibrate reviewers to treat uncertainty signaling as effort, not failure
+
+### Effect
+Evaluators become less reliant on confidence theater and more willing to preserve ambiguity when warranted.
+
+---
+
+## 2. Escalation Cost Rebalancing
+
+### Problem
+Escalation often carries hidden costs:
+- time delays
+- social friction
+- perceived incompetence
+- workflow disruption
+
+This suppresses legitimate signals.
+
+### Intervention
+Reduce the marginal cost of escalation for *specific classes of cases*, such as:
+- rubric conflicts
+- high-impact ambiguity
+- novel failure patterns
+
+This can be achieved by:
+- dedicated escalation channels
+- lightweight flagging mechanisms
+- reviewer acknowledgment of “good escalations”
+
+### Effect
+Escalation becomes a diagnostic tool rather than a failure signal.
+
+---
+
+## 3. Selective Slowdown, Not Global Throttling
+
+### Problem
+Global speed reductions are blunt instruments that:
+- reduce productivity
+- frustrate evaluators
+- fail to target the most fragile judgments
+
+### Intervention
+Introduce **selective slowdown** for:
+- ambiguous prompts
+- multi-turn evaluations
+- high-stakes preference data
+
+This can take the form of:
+- adjusted time expectations
+- optional “slow lane” routing
+- explicit permission to spend more time on flagged cases
+
+### Effect
+Critical judgment faculties are protected without sacrificing overall throughput.
+
+---
+
+## 4. Negative Example Calibration as Counter-Pressure
+
+### Problem
+Evaluators learn fastest from what *not* to do, but negative examples are often underused.
+
+### Intervention
+Deploy curated negative examples that demonstrate:
+- false helpfulness
+- premature resolution
+- overconfident reasoning
+- rubric-compliant but structurally wrong outputs
+
+Crucially, pair them with explanations of **why they were tempting**.
+
+### Effect
+This creates cognitive counter-pressure against confidence bias and template drift.
+
+---
+
+## 5. Decoupling Agreement from Correctness in Edge Regimes
+
+### Problem
+Agreement is easiest when nuance is removed.
+
+### Intervention
+In explicitly ambiguous regimes:
+- treat disagreement as informative
+- allow multiple acceptable resolutions
+- surface variance rather than suppress it
+
+This may include:
+- confidence bands instead of single scores
+- structured disagreement capture
+- reviewer prompts that ask *why* a decision was hard
+
+### Effect
+Agreement stops functioning as a blunt proxy for quality.
+
+---
+
+## 6. Reviewer Signal Awareness (Without Surveillance)
+
+### Problem
+Teams often notice quality degradation only after it becomes widespread.
+
+### Intervention
+Train leads to monitor **system-level signals**, such as:
+- sudden drops in escalation volume
+- compressed rationale diversity
+- unusually fast resolution of complex cases
+- convergence toward narrow decision patterns
+
+Importantly, these are treated as **system diagnostics**, not performance flags.
+
+### Effect
+Early detection without adversarial monitoring.
+
+---
+
+## What Not to Do
+
+The following interventions consistently backfire:
+
+- increasing individual accountability without structural change
+- adding more rules to underspecified rubrics
+- enforcing rigid speed quotas
+- introducing constant surveillance or screen monitoring
+- moralizing quality failures
+
+These approaches treat symptoms while reinforcing the underlying incentives that caused them.
+
+---
+
+## Summary
+
+High-quality evaluation does not require extraordinary evaluators.
+
+It requires:
+- incentives that align with signal preservation
+- structures that reduce the cost of good judgment
+- systems that tolerate uncertainty where it is appropriate
+
+When good judgment becomes the path of least resistance, quality stabilizes naturally.
+
+That is the goal of leverage.

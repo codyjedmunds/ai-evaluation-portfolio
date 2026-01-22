@@ -1,0 +1,124 @@
+# Incentive Misalignment in LLM Evaluation Systems
+
+This document examines how **well-intentioned evaluation pipelines systematically reward the wrong behaviors** under real production constraints.
+
+The failures described here do not require incompetence, bad faith, or neglect. They emerge naturally when human judgment is filtered through metrics, throughput targets, and proxy signals that only partially represent evaluation quality.
+
+---
+
+## The Nature of the Misalignment
+
+In most large-scale LLM evaluation systems, evaluators are asked to optimize for multiple goals simultaneously:
+
+- correctness
+- consistency with guidelines
+- speed
+- agreement with other reviewers
+- low escalation volume
+- clear, defensible rationales
+
+These goals are rarely weighted explicitly. Instead, evaluators infer priorities from what is:
+- measured
+- reviewed
+- surfaced in feedback
+- associated with friction or reward
+
+Over time, this inference process shapes behavior more strongly than written guidelines.
+
+---
+
+## Proxy Metrics and Goodhart Pressure
+
+Evaluation quality is difficult to measure directly. As a result, systems rely on **proxies**, such as:
+
+- inter-annotator agreement
+- average task duration
+- escalation frequency
+- reviewer acceptance rates
+- surface-level helpfulness
+
+When a proxy becomes a target, it ceases to reliably measure the underlying quality it was meant to represent.
+
+This pressure does not require explicit quotas. Even soft signals—such as praise for speed or irritation at frequent escalation—are sufficient to shift evaluator behavior.
+
+---
+
+## What Gets Rewarded in Practice
+
+Under proxy pressure, evaluators learn—often unconsciously—to favor outputs that are:
+
+- easy to justify
+- quickly resolvable
+- broadly agreeable
+- confident in tone
+- minimally disruptive to workflow
+
+These characteristics correlate with *perceived* quality, but not necessarily with **correct judgment under ambiguity**.
+
+As a result, systems drift toward rewarding:
+- premature resolution of ambiguous prompts
+- confident but shallow reasoning
+- standardized rationale templates
+- avoidance of uncertainty signaling
+- local resolution of cases that should surface guideline gaps
+
+---
+
+## Rubric Compliance vs Signal Preservation
+
+Rubrics are often treated as safeguards against misalignment. In practice, they introduce their own pressures.
+
+When rubrics are incomplete, conflicting, or underspecified—as they inevitably are—evaluators face a choice:
+- pause, flag ambiguity, and escalate
+- or select the most defensible interpretation and proceed
+
+Under throughput and agreement pressure, the second option is often rewarded.
+
+This creates a subtle inversion:
+- evaluators who preserve ambiguity introduce friction
+- evaluators who resolve ambiguity appear efficient and consistent
+
+Over time, rubric compliance becomes a performance of alignment rather than a guarantee of signal quality.
+
+---
+
+## Agreement as a Distorting Incentive
+
+High agreement is often treated as evidence of quality. However, agreement is easiest to achieve when:
+- cases are simplified
+- uncertainty is collapsed
+- nuance is removed
+
+Evaluators learn to converge not on the most defensible interpretation, but on the most *agreeable* one.
+
+This convergence is not collusion. It is adaptation.
+
+---
+
+## Why Training Alone Does Not Fix This
+
+Additional training, calibration sessions, or clearer guidelines can temporarily slow misalignment, but they do not remove the underlying incentive structure.
+
+As long as:
+- speed is rewarded more reliably than hesitation
+- agreement is safer than dissent
+- escalation carries social or operational cost
+
+evaluators will rationally optimize around those constraints.
+
+The result is not failure to follow rules, but **successful adaptation to the system as it actually operates**.
+
+---
+
+## Summary
+
+Incentive misalignment in LLM evaluation systems arises because:
+
+- quality is hard to observe directly
+- proxies substitute for true signal
+- evaluators adapt to what minimizes friction and risk
+- ambiguity preservation is rarely rewarded explicitly
+
+These dynamics are structural, predictable, and stable.
+
+Addressing them requires not better intentions, but **better-aligned incentives**—a topic explored in later sections.

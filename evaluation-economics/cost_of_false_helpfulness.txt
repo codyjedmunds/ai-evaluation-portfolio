@@ -1,0 +1,143 @@
+# The Cost of False Helpfulness
+
+This document examines why **false positives in LLM evaluation—outputs that appear helpful but are structurally incorrect—are often more damaging than false negatives** in production evaluation systems.
+
+False helpfulness is not merely an error category. It is a **failure mode that exploits human reward heuristics**, distorts downstream learning, and accumulates harm quietly.
+
+---
+
+## What Is False Helpfulness?
+
+An output is falsely helpful when it:
+- appears responsive and supportive
+- offers confident guidance or resolution
+- reduces perceived uncertainty
+- satisfies surface-level expectations
+
+while:
+- resolving ambiguity prematurely
+- ignoring missing or conflicting information
+- introducing unjustified urgency
+- masking uncertainty with tone
+
+False helpfulness is especially dangerous because it **looks like success** to both users and evaluators.
+
+---
+
+## Asymmetry of Error Costs
+
+In many evaluation systems, errors are treated symmetrically:
+- false positives (rewarding bad outputs)
+- false negatives (penalizing good outputs)
+
+In practice, their downstream costs differ sharply.
+
+### False Negatives
+- remove potentially useful behavior
+- may slow learning or reduce coverage
+- are often corrected through diversity or retraining
+
+### False Positives
+- reinforce structurally incorrect behavior
+- contaminate preference signals
+- teach models to optimize for confidence over correctness
+- are harder to detect once embedded
+
+False helpfulness, once rewarded, becomes self-reinforcing.
+
+---
+
+## Why Evaluators Under-Penalize False Helpfulness
+
+Evaluators are human.
+
+They are sensitive to:
+- tone
+- confidence
+- perceived effort
+- narrative coherence
+
+False helpfulness exploits these sensitivities by:
+- reducing cognitive load
+- offering closure
+- aligning with social expectations of assistance
+
+Penalizing such outputs requires evaluators to:
+- resist affective cues
+- tolerate discomfort
+- articulate why something that “feels right” is wrong
+
+Under throughput pressure, this resistance is costly.
+
+---
+
+## Downstream Effects in Preference Modeling
+
+When false helpfulness is rewarded in evaluation:
+- models learn to resolve uncertainty aggressively
+- caution is interpreted as weakness
+- hedging is underweighted
+- affective reassurance substitutes for epistemic soundness
+
+Over time, this produces models that:
+- answer confidently in underspecified contexts
+- escalate urgency without evidence
+- prioritize completion over understanding
+
+These behaviors are difficult to unlearn because they sit at the intersection of tone, structure, and reward.
+
+---
+
+## Visibility Bias
+
+False helpfulness is rarely flagged because:
+- it does not cause immediate failure
+- it aligns with expectations of “good” behavior
+- it reduces friction for evaluators and reviewers
+
+Its harms accumulate indirectly:
+- degraded trust
+- brittle responses under edge cases
+- systematic misalignment in ambiguous domains
+
+By the time the cost becomes visible, it is often widespread.
+
+---
+
+## Why This Matters More Under Ambiguity
+
+Ambiguous prompts amplify the risk of false helpfulness.
+
+In these contexts:
+- there is no single correct answer
+- judgment quality matters more than resolution
+- confidence is least justified
+
+Yet ambiguity is precisely where false helpfulness is most rewarded, because it offers relief from uncertainty.
+
+This creates a perverse incentive: the harder the case, the stronger the pull toward confident error.
+
+---
+
+## Implications for Evaluation Design
+
+If false helpfulness carries asymmetric cost, then:
+- evaluation systems should penalize confident error more heavily than cautious omission
+- uncertainty signaling should be treated as a positive signal, not a defect
+- escalation should be easier for ambiguous cases, not harder
+
+These implications challenge common intuitions about productivity and user satisfaction—but align with long-term signal quality.
+
+---
+
+## Summary
+
+False helpfulness is costly because it:
+- mimics success
+- exploits human reward heuristics
+- contaminates downstream learning
+- resists detection
+
+Treating all errors as equal obscures this asymmetry.
+
+Preserving evaluation quality requires recognizing that **some wrong answers are far more dangerous than saying “not enough information”**.
