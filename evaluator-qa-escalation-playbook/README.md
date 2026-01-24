@@ -57,8 +57,8 @@ Defines common **evaluator-side failure modes**, including:
 - rubric literalism
 - premature ambiguity collapse
 - escalation avoidance or overuse
-- template drift and confidence flattening
-- outcome anchoring
+- template drift
+- escalation decoupling
 
 The taxonomy supports QA feedback and calibration without personalizing error.
 
@@ -128,4 +128,5 @@ The two are designed to work together without duplication.
 ## Feedback
 
 Feedback from practitioners working in LLM evaluation, QA, escalation, or annotation operations is welcome.
+
 
