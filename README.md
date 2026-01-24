@@ -1,8 +1,10 @@
 # AI Evaluation Portfolio
 
-Collection of documentation artifacts demonstrating evaluation design, operational judgment, and incentive analysis in LLM/RLHF pipelines.
+Collection of documentation artifacts demonstrating evaluation design,
+operational judgment, and incentive analysis in LLM and RLHF pipelines.
 
 - **llm-ambiguity-eval**: Qualitative framework for detecting failure modes under ambiguity and urgency (rubric, calibration, negative examples, comparisons).
+- **noumenal-triangulator**: A role-separated, post-hoc evaluation pipeline that audits fluent LLM outputs and issues containment decisions (ALLOW, ANNOTATE, CLARIFY, HALT) based on surfaced ambiguity and structural failure modes.
 - **evaluator-qa-escalation-playbook**: Procedural guidance for maintaining quality at scale — escalation logic, throughput trade-offs, and audit safety.
 - **evaluation-economics**: Incentive and cost analysis explaining why quality drift and false helpfulness persist in evaluation systems.
 
@@ -10,7 +12,9 @@ Collection of documentation artifacts demonstrating evaluation design, operation
 
 ## Overview
 
-This repository contains a focused set of documentation artifacts demonstrating **human judgment, quality control, and decision-making under constraint** in large-scale LLM evaluation and quality assurance workflows.
+This repository contains a focused set of documentation artifacts demonstrating
+**human judgment, quality control, and decision-making under constraint** in
+large-scale LLM evaluation and quality assurance workflows.
 
 The emphasis is not on model training, prompt engineering, or automation, but on:
 
@@ -29,7 +33,8 @@ All examples are synthetic and contain no client or proprietary data.
 
 ### 1. `llm-ambiguity-eval/`
 
-A qualitative evaluation framework for identifying and scoring LLM failure modes when instructions are incomplete, conflicting, shifting, or time-pressured.
+A qualitative evaluation framework for identifying and scoring LLM failure modes
+when instructions are incomplete, conflicting, shifting, or time-pressured.
 
 Includes:
 - A structured evaluation rubric
@@ -37,13 +42,36 @@ Includes:
 - Negative examples illustrating common evaluator errors
 - Side-by-side comparisons showing subtle judgment differences
 
-This section demonstrates how ambiguity can be surfaced, preserved, and scored rather than prematurely collapsed.
+This section demonstrates how ambiguity can be surfaced, preserved, and scored
+rather than prematurely collapsed.
 
 **Primary focus:** epistemic judgment and evaluator calibration.
 
 ---
 
-### 2. `evaluator-qa-escalation-playbook/`
+### 2. `noumenal-triangulator/`
+
+A documentation-first evaluation pipeline demonstrating how fluent but quietly
+misleading LLM outputs can be audited *after generation* without rewriting,
+correcting, or debating the content.
+
+The Noumenal Triangulator separates evaluation into three roles:
+
+- **Registrar** — neutral extraction of claims, assumptions, constraints, and unresolved ambiguity
+- **Auditor** — detection of structural failure modes and assignment of severity
+- **Escalation Controller** — policy-driven containment decisions
+
+The included worked example demonstrates a “quiet wrongness” case in which an
+apparently reasonable model response prematurely resolves ambiguity by assuming
+a benign regime (low stakes, reversible error). The system converts this into a
+traceable **CLARIFY** decision, pausing downstream use of the output until missing
+variables or assumptions are explicitly resolved.
+
+**Primary focus:** post-hoc evaluation, containment logic, and judgment under ambiguity.
+
+---
+
+### 3. `evaluator-qa-escalation-playbook/`
 
 A practical playbook for operating evaluation workflows in production environments.
 
@@ -55,17 +83,20 @@ Includes:
 - Reviewer note templates
 - Governance and audit-safety considerations
 
-This section focuses on what happens *after* a rubric exists: guideline gaps, disagreement between reviewers, escalation thresholds, and process safety at scale.
+This section focuses on what happens *after* a rubric exists: guideline gaps,
+disagreement between reviewers, escalation thresholds, and process safety at scale.
 
 **Primary focus:** QA, escalation, and production reliability.
 
 ---
 
-### 3. `evaluation-economics/`
+### 4. `evaluation-economics/`
 
-An analysis of **why quality degradation, false helpfulness, and evaluator disagreement persist** even when evaluators are competent and acting in good faith.
+An analysis of **why quality degradation, false helpfulness, and evaluator
+disagreement persist** even when evaluators are competent and acting in good faith.
 
-Rather than treating failures as individual mistakes, this section examines evaluation pipelines as **incentive-constrained systems**.
+Rather than treating failures as individual mistakes, this section examines
+evaluation pipelines as **incentive-constrained systems**.
 
 Covers:
 - Incentive misalignment in annotation and evaluation environments
@@ -80,13 +111,14 @@ Covers:
 
 ## How the Pieces Fit Together
 
-The three components form a closed loop:
+The components form a closed loop:
 
 - **`llm-ambiguity-eval`** defines *what* evaluators should notice and how ambiguity should be scored.
+- **`noumenal-triangulator`** defines *when* outputs may proceed, be paused, or require escalation.
 - **`evaluator-qa-escalation-playbook`** defines *how* judgment is maintained operationally under pressure.
 - **`evaluation-economics`** explains *why* those systems tend to fail without structural support.
 
-Judgment → operation → incentives.
+Judgment → containment → operation → incentives.
 
 ---
 
@@ -119,4 +151,5 @@ The intent is to demonstrate readiness for roles involving:
 
 ## Feedback
 
-Feedback from practitioners working in LLM evaluation, QA, annotation operations, or trust & safety is welcome.
+Feedback from practitioners working in LLM evaluation, QA, annotation operations,
+or trust & safety is welcome.
