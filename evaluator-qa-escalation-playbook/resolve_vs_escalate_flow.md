@@ -14,6 +14,8 @@ Escalation is a tool for resolving **system-level ambiguity**, not a default res
 
 Local resolution is preferred when it can be performed consistently, defensibly, and without introducing downstream risk.
 
+Escalation only adds value when it is **semantically coupled** to the problem it is meant to resolve—that is, when it can plausibly restore clarity rather than merely advance procedure.
+
 ---
 
 ## Step 1: Identify the Issue Type
@@ -66,7 +68,7 @@ Escalation is appropriate when **one or more** of the following conditions apply
 - Incorrect handling risks systemic drift
 - Confidence in any local resolution is low and persistent
 
-Escalation should be proportional to impact, not driven by discomfort or risk aversion.
+Escalation should be proportional to impact, not driven by discomfort, uncertainty aversion, or defensive behavior.
 
 ---
 
@@ -75,6 +77,7 @@ Escalation should be proportional to impact, not driven by discomfort or risk av
 Based on the assessment, select one of the following paths:
 
 ### Path A: Resolve Locally
+
 Use when:
 - The rubric is sufficient
 - Impact is limited
@@ -88,6 +91,7 @@ Action:
 ---
 
 ### Path B: Flag for QA Review
+
 Use when:
 - Confidence is moderate
 - Consistency is uncertain
@@ -95,12 +99,13 @@ Use when:
 
 Action:
 - Document the issue
-- Flag for QA review
+- Flag for QA review (non-escalatory)
 - Continue evaluation where possible
 
 ---
 
 ### Path C: Escalate for Guideline Clarification
+
 Use when:
 - The rubric fails systematically
 - Disagreement persists among experienced evaluators
@@ -113,7 +118,42 @@ Action:
 
 ---
 
-## Step 5: Document the Decision
+## Step 5: Escalation Decoupling Check  
+*(Pre-Escalation Integrity Gate)*
+
+Before escalating, assess whether escalation itself is still capable of restoring clarity.
+
+Escalation is likely **decoupled** when one or more of the following are observed:
+
+- Similar issues have been escalated repeatedly without producing clearer guidance
+- Escalation outcomes approve decisions without improving underlying rationale quality
+- Procedural escalation continues while semantic disagreement persists
+- Escalation validates process completion rather than resolving meaning
+- Confidence in escalation outcomes is based primarily on authority rather than clarification
+
+When these signals are present, escalation may continue to execute correctly while no longer correcting the underlying problem.
+
+This condition is referred to as **Escalation Decoupling**.
+
+---
+
+## Step 6: Reroute When Escalation Is Decoupled
+
+When Escalation Decoupling is suspected:
+
+- Do **not** escalate hierarchically by default
+- Explicitly document the suspected frame decay
+- Route the issue to an alternative resolution channel, such as:
+  - guideline ownership review
+  - cross-functional calibration
+  - independent audit or secondary review
+  - temporary containment or deferral classification
+
+The objective is **frame restoration**, not procedural approval.
+
+---
+
+## Step 7: Document the Decision
 
 All non-trivial decisions should include:
 
@@ -137,6 +177,9 @@ Common failure modes include:
 - **Resolving to avoid review**  
   Forcing local resolution when precedent risk exists.
 
+- **Escalating after semantic decay**  
+  Continuing hierarchical escalation after the frame it relies on has drifted.
+
 - **Over-documenting trivial cases**  
   Creating noise that obscures meaningful signals.
 
@@ -154,6 +197,7 @@ This flow is designed to:
 - preserve evaluator discretion
 - prevent silent standard divergence
 - maintain audit-safe decision trails
+- detect when escalation itself becomes pathological
 - support continuous guideline improvement
 
-It is a living document and should evolve as failure modes surface in production.
+It is a living document and should evolve as new failure modes surface in production.
