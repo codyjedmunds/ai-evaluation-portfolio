@@ -25,7 +25,9 @@ In practice, drift emerges when evaluators **successfully optimize** for:
 - minimal escalation
 - defensible justifications
 
-When these pressures remain stable, the system settles into a **local equilibrium** where further quality degradation is unlikely—but quality recovery is also unlikely without intervention.
+When these pressures remain stable, the system settles into a **local equilibrium** where further quality degradation slows or plateaus—but quality recovery is also unlikely without intervention.
+
+This equilibrium can be internally coherent while being externally misaligned.
 
 ---
 
@@ -84,7 +86,7 @@ Hesitant or nuanced rationales:
 - increase review time
 - raise escalation probability
 
-Over time, evaluators learn—implicitly—that confidence is safer than precision, even when the underlying case is uncertain.
+Over time, evaluators learn—implicitly—that confidence is safer than precision under review, even when the underlying case is uncertain.
 
 This produces a gradual shift from defensible judgment to **defensible performance**.
 
@@ -110,15 +112,59 @@ Thus, drift persists.
 
 ---
 
+## Escalation Decoupling: When Oversight Stops Working
+
+At a certain point, quality drift survives not because escalation fails to exist—but because **escalation no longer tracks meaning**.
+
+Escalation Decoupling occurs when:
+- escalation procedures continue to execute
+- review volume remains normal or increases
+- approvals are still granted
+- but the semantic frame those procedures rely on has already decayed
+
+The system appears healthy:
+- metrics pass
+- tickets move
+- senior reviewers sign off
+
+Yet escalation now operates on **stale premises**.  
+It enforces consistency within an outdated frame rather than restoring alignment.
+
+At this stage:
+- additional escalation does not recover quality
+- disagreement is resolved procedurally rather than semantically
+- oversight becomes performative rather than corrective
+
+The system is no longer drifting quietly — it has stabilized *after* drift.
+
+---
+
+## The Economic Cost of Decoupled Escalation
+
+Once escalation decoupling occurs, the economics change sharply.
+
+- Marginal escalation cost increases (time, staffing, coordination)
+- Marginal semantic benefit approaches zero
+- Resources are consumed without restoring evaluative signal
+
+From an economic perspective, continued escalation under frame decay becomes a **deadweight loss**:
+- expensive
+- stabilizing
+- and misleadingly reassuring
+
+This is why simply “adding more reviewers” or “tightening escalation” often worsens throughput without improving quality.
+
+---
+
 ## Drift Without Bad Actors
 
-Crucially, quality drift does not require:
+Crucially, quality drift and escalation decoupling do not require:
 - negligence
 - dishonesty
 - laziness
 - adversarial intent
 
-It emerges from:
+They emerge from:
 - reasonable people
 - making reasonable choices
 - under reasonable constraints
@@ -129,11 +175,12 @@ This is why punitive or moral responses to drift rarely succeed.
 
 ## Implications
 
-If quality drift is rational, then:
+If quality drift and escalation decoupling are rational, then:
 - exhortation is ineffective
 - training alone is insufficient
 - surveillance creates new distortions
 - blaming evaluators misses the point
+- escalation volume is not a proxy for alignment
 
 Stability requires changing the **structure of the optimization problem**, not the character of the people solving it.
 
@@ -148,6 +195,8 @@ Quality drift in LLM evaluation systems is:
 - behaviorally rational
 - resistant to surface-level fixes
 
+When drift progresses far enough, escalation itself can decouple from meaning—producing oversight without correction.
+
 Understanding drift as an equilibrium—not a failure—creates the possibility of designing systems where *good judgment is once again the easiest option*.
 
-The next sections examine why some errors are more costly than others, and where small structural changes can produce outsized improvements.
+The next sections examine which failure modes are most damaging, and where small structural changes can still produce outsized improvements.
