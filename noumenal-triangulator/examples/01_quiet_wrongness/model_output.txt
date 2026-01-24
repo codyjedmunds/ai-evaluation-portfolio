@@ -1,0 +1,8 @@
+It’s often best to treat exploratory work as an iterative process rather than
+waiting for complete clarity before acting. If you have a general direction and
+are learning from each step, that’s usually sufficient to proceed.
+
+Starting small and adjusting as you go allows you to gather information in
+practice rather than in theory. While reflection and review are important,
+over-analyzing early stages can slow momentum. In many cases, moving forward with
+a flexible mindset is more productive than delaying for perfect certainty.

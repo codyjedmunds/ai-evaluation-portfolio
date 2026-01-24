@@ -1,0 +1,22 @@
+failures:
+  - code: F1
+    name: Missing Key Variable
+    severity: 2
+    evidence: >
+      The output provides guidance on when to proceed versus clarify without
+      specifying domain, stakes, decision authority, or consequences of error.
+
+  - code: F2
+    name: Premature Certainty
+    severity: 2
+    evidence: >
+      The output recommends proceeding with iteration despite unresolved
+      ambiguity, presenting a general rule where decision criteria are undefined.
+
+decision: CLARIFY
+
+rationale: >
+  The response offers fluent, actionable guidance while resolving a decision
+  that depends on missing contextual variables. Multiple medium-severity
+  failures are present in a decision-support context, triggering a CLARIFY
+  action under the decision policy.
