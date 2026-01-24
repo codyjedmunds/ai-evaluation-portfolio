@@ -1,237 +1,112 @@
-# Evaluator Failure Taxonomy
+# Failure Taxonomy
 
-This document defines common **evaluator-side failure modes** observed in large-scale LLM evaluation and annotation workflows.
+This document enumerates recurring failure modes observed in large-scale AI evaluation, annotation, and escalation systems. These failures are not individual mistakes, but structural pathologies that emerge under scale, time pressure, ambiguity, and incentive misalignment.
 
-The taxonomy focuses on **human judgment errors**, not model behavior.  
-Its purpose is to support QA review, feedback, calibration, and escalation decisions **without personalizing error**.
-
-All examples are synthetic.
+The taxonomy is intended to be diagnostic, not punitive.
 
 ---
 
-## Purpose
+## Rubric Literalism
 
-Evaluator failures are rarely the result of negligence or incompetence.  
-They emerge from pressure, ambiguity, tooling constraints, and misaligned incentives.
+**Description:**  
+Evaluators adhere rigidly to rubric wording even when contextual signals clearly indicate misclassification.
 
-This taxonomy exists to:
-- name recurring failure patterns
-- reduce inconsistent QA feedback
-- separate judgment errors from rubric defects
-- prevent silent quality drift
-- support escalation decisions in a non-punitive way
+**Diagnostic Signs:**
+- High inter-annotator agreement with low downstream usefulness
+- Annotator justifications mirror rubric language verbatim
+- Edge cases repeatedly “resolved” without escalation yet reappear later
 
----
-
-## How to Use This Taxonomy
-
-This taxonomy is intended to be used:
-- by QA reviewers during audit or spot checks
-- by senior evaluators during calibration
-- by guideline owners when refining rubrics
-- as a reference when documenting escalation rationale
-
-It is **descriptive**, not punitive.
+**Root Cause:**  
+Rubrics are treated as ground truth rather than measurement instruments designed to be revised.
 
 ---
 
-## Failure Categories
+## Premature Ambiguity Collapse
 
-### 1. Rubric Literalism
+**Description:**  
+Ambiguous cases are forced into discrete labels too early, eliminating uncertainty before it can be examined or resolved.
 
-**Description**  
-The evaluator applies the rubric mechanically without accounting for intent, context, or downstream meaning.
+**Diagnostic Signs:**
+- Overconfident labels on underspecified inputs
+- Reduced use of “uncertain” or “needs clarification” pathways
+- Downstream disagreement framed as “model failure” rather than evaluation failure
 
-**Common Signals**
-- Correct citation of rubric text with an incorrect outcome
-- Inflexible scoring despite clear semantic mismatch
-- Rejection of reasonable interpretations not explicitly enumerated
-
-**Risk**
-- Systematic mislabeling
-- False consistency
-- Suppression of legitimate variance
-
-**Mitigation**
-- Calibration examples
-- Emphasis on rubric intent, not surface phrasing
-- Peer review on edge cases
+**Root Cause:**  
+Operational pressure to close tickets overrides epistemic caution.
 
 ---
 
-### 2. Premature Ambiguity Collapse
+## Escalation Avoidance
 
-**Description**  
-The evaluator resolves ambiguity too early in order to produce a clean decision.
+**Description:**  
+Evaluators avoid escalation due to perceived cost, friction, or fear of negative performance signals.
 
-**Common Signals**
-- Overconfident rationales on underdetermined cases
-- Absence of uncertainty language where ambiguity is evident
-- Forced binary outcomes
+**Diagnostic Signs:**
+- Unusually low escalation rates in high-ambiguity domains
+- Repeated borderline calls by the same evaluators
+- “I handled it locally” rationales without documented reasoning
 
-**Risk**
-- Loss of signal
-- Downstream training distortion
-- Overstated model competence or failure
-
-**Mitigation**
-- Encourage explicit acknowledgment of ambiguity
-- Allow partial or qualified rationales
-- Reinforce ambiguity as a valid state
+**Root Cause:**  
+Escalation is socially or economically penalized.
 
 ---
 
-### 3. Escalation Avoidance
+## Escalation Overuse
 
-**Description**  
-The evaluator resolves locally despite indicators that escalation is appropriate.
+**Description:**  
+Escalation is used as a substitute for judgment, pushing routine or well-understood cases upward.
 
-**Common Signals**
-- Repeated local resolutions on precedent-setting issues
-- Minimal documentation on high-impact cases
-- Rationale optimized for speed over defensibility
+**Diagnostic Signs:**
+- High escalation volume with low variance in outcomes
+- Seniors acting as rubber stamps
+- Little learning or rubric refinement despite frequent escalation
 
-**Risk**
-- Silent guideline drift
-- Inconsistent standards across evaluators
-- Accumulation of unreviewed precedent
-
-**Mitigation**
-- Normalize escalation as system maintenance
-- Clarify escalation thresholds
-- Provide low-friction escalation pathways
+**Root Cause:**  
+Incentives reward deferral of responsibility over accurate resolution.
 
 ---
 
-### 4. Escalation Overuse
+## Template Drift
 
-**Description**  
-The evaluator escalates issues that could be resolved locally with reasonable confidence.
+**Description:**  
+Evaluation templates and checklists accumulate legacy assumptions that no longer reflect the system being evaluated.
 
-**Common Signals**
-- Escalation driven by discomfort rather than rubric conflict
-- High escalation volume on low-impact cases
-- Minimal attempt at local interpretation
+**Diagnostic Signs:**
+- Questions that no longer map cleanly to model behavior
+- Evaluators expressing “this doesn’t quite fit, but…”
+- Growing reliance on comments to override template outputs
 
-**Risk**
-- Throughput degradation
-- Reviewer overload
-- Delayed feedback cycles
-
-**Mitigation**
-- Reinforce evaluator autonomy
-- Provide examples of appropriate local resolution
-- Calibrate escalation proportionality
+**Root Cause:**  
+Templates outlive the conditions under which they were designed.
 
 ---
 
-### 5. Template Drift
+## Escalation Decoupling
 
-**Description**  
-Evaluator rationales converge into a uniform structure regardless of task difficulty or ambiguity.
+**Description:**  
+Procedural escalation continues (tickets advance, seniors review, approvals are issued) after the semantic frame that escalation presupposes has already decayed.
 
-**Common Signals**
-- Identical phrasing across heterogeneous cases
-- Flattened confidence language
-- Reduced specificity over time
+The system appears to function correctly — metrics pass, workflows execute — but escalation no longer restores meaning or resolves uncertainty. It performs governance theater on stale premises.
 
-**Risk**
-- Loss of evaluative signal
-- Artificial appearance of certainty
-- Reduced audit credibility
+**Diagnostic Signs:**
+- Stable or increasing escalation volume alongside declining semantic coherence
+- Compressed variance in escalation rationales (“approved as expected”)
+- Persistent senior approval despite acknowledged downstream incoherence
+- Issues recur at higher abstraction levels without reframing
 
-**Mitigation**
-- Periodic rationale audits
-- Encourage variance aligned with difficulty
-- Rotate exemplar rationales
+**Root Cause:**  
+Escalation is hierarchically coupled but semantically uncoupled. Authority advances faster than understanding.
 
----
+**Why It Matters:**  
+Once escalation decoupling occurs, further escalation increases cost without increasing truth. The system expends resources while drifting further from the conditions it was built to govern.
 
-### 6. Confidence Flattening
-
-**Description**  
-The evaluator presents all judgments with the same apparent confidence level.
-
-**Common Signals**
-- Uniform tone across trivial and complex cases
-- Absence of confidence markers
-- Over-polished rationales
-
-**Risk**
-- Misleading downstream interpretation
-- Masked uncertainty
-- Reduced calibration effectiveness
-
-**Mitigation**
-- Allow graded confidence expression
-- Normalize uncertainty markers
-- Reinforce confidence as informational, not performative
+**Primary Risk:**  
+False confidence at scale — the appearance of diligence masking the loss of epistemic control.
 
 ---
 
-### 7. Instruction Shadowing
+## Notes
 
-**Description**  
-The evaluator defers excessively to instruction phrasing, even when conflicting or outdated.
+Many failures co-occur. Escalation Decoupling is often downstream of Template Drift or Premature Ambiguity Collapse, but once present it becomes self-sustaining unless explicitly detected and interrupted.
 
-**Common Signals**
-- Citing superseded guidance
-- Ignoring contextual updates
-- Over-prioritizing static instructions over live clarification
-
-**Risk**
-- Lagging alignment
-- Fragmented standards
-- Reviewer frustration
-
-**Mitigation**
-- Clear versioning of guidelines
-- Explicit update signaling
-- QA clarification loops
-
----
-
-### 8. Outcome Anchoring
-
-**Description**  
-The evaluator’s judgment is influenced by perceived model quality rather than rubric criteria.
-
-**Common Signals**
-- Leniency toward “good-looking” outputs
-- Harsher scoring of awkward but correct responses
-- Rationales referencing perceived intent rather than criteria
-
-**Risk**
-- Bias introduction
-- Inconsistent scoring
-- Training signal contamination
-
-**Mitigation**
-- Blind evaluation where feasible
-- Re-emphasis on criteria-first judgment
-- Calibration against counterintuitive examples
-
----
-
-## Relationship to Escalation Flow
-
-This taxonomy supports the `resolve_vs_escalate_flow.md` by:
-- providing shared language for QA feedback
-- clarifying when evaluator behavior, not the rubric, is at fault
-- distinguishing resolvable uncertainty from systemic ambiguity
-
-Failure classification should inform, not replace, escalation decisions.
-
----
-
-## Scope & Limits
-
-- This taxonomy does not enumerate all possible errors.
-- It is not a performance evaluation rubric.
-- It does not prescribe disciplinary action.
-- It is intended to evolve as new failure modes surface.
-
-## Feedback
-
-Suggestions for additional failure modes or refinements are welcome from practitioners working in LLM evaluation, QA, or annotation operations.
-
+Detecting and correcting these failures typically requires changes to feedback loops, incentive structures, or escalation semantics — not additional training alone.
