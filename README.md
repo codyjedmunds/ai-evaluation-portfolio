@@ -1,26 +1,26 @@
 # AI Evaluation Portfolio
 
-A collection of documentation artifacts demonstrating **evaluation design, judgment under ambiguity, containment logic, and incentive analysis** in LLM and RLHF pipelines.
+A collection of documentation artifacts demonstrating **evaluation design, judgment under ambiguity, escalation control, and incentive analysis** in large-scale LLM and RLHF pipelines.
 
-This portfolio focuses on a single problem that increasingly defines modern AI systems:
+This portfolio focuses on a problem that increasingly defines modern AI systems:
 
 > **Failures now arise less from incorrect answers than from answers being allowed to matter when they shouldn’t.**
 
-Rather than optimizing outputs, this work examines how ambiguity is collapsed, authority is assumed, and confidence substitutes for structure — and how evaluators decide when to allow, pause, or escalate model responses.
+Rather than optimizing model outputs, this work examines how ambiguity is collapsed, authority is assumed, escalation becomes decoupled, and confidence substitutes for structure — and how evaluators decide when to allow, pause, reroute, or escalate model responses.
 
 ---
 
 ## Overview
 
-This repository contains a focused set of documentation artifacts demonstrating **human judgment, quality control, and decision-making under constraint** in large-scale LLM evaluation and quality assurance workflows.
+This repository contains a focused set of documentation artifacts demonstrating **human judgment, quality control, and decision-making under constraint** in production-scale LLM evaluation and QA workflows.
 
 The emphasis is not on model training, prompt engineering, or automation, but on:
 
 - evaluating model outputs under ambiguity  
 - preserving uncertainty rather than prematurely resolving it  
 - maintaining evaluator consistency under pressure  
-- handling reviewer disagreement and edge cases  
-- deciding when to proceed locally vs escalate  
+- handling reviewer disagreement and escalation fatigue  
+- distinguishing productive escalation from procedural escalation  
 - understanding why quality degradation is often a rational system outcome  
 
 All examples are synthetic and contain no client or proprietary data.
@@ -53,7 +53,7 @@ The Noumenal Triangulator separates evaluation into three roles:
 
 - **Registrar** — neutral extraction of claims, assumptions, constraints, and unresolved ambiguity  
 - **Auditor** — detection of structural failure modes and assignment of severity  
-- **Escalation Controller** — policy-driven containment decisions  
+- **Escalation Controller** — policy-driven containment and routing decisions  
 
 Rather than asking *“Is this answer correct?”*, the system asks:
 
@@ -73,17 +73,18 @@ The system converts this into a **traceable CLARIFY decision**, pausing downstre
 A practical playbook for operating evaluation workflows in production environments.
 
 Includes:
-- evaluator-side failure taxonomy  
+- an evaluator-side failure taxonomy  
 - decision flows for resolving vs escalating edge cases  
+- explicit checks for escalation decoupling  
 - guidance on quality vs throughput trade-offs  
 - example escalation scenarios  
 - reviewer note templates  
 - governance and audit-safety considerations  
 
 This section focuses on what happens **after evaluative rules exist**:  
-guideline gaps, reviewer disagreement, escalation fatigue, and process safety at scale.
+guideline gaps, reviewer disagreement, escalation fatigue, and the risk of escalation continuing to execute correctly after it stops restoring clarity.
 
-**Primary focus:** QA, escalation, and production reliability.
+**Primary focus:** QA operations, escalation control, and production reliability.
 
 ---
 
@@ -98,6 +99,7 @@ Covers:
 - the asymmetric cost of false helpfulness  
 - throughput pressure and its effects on judgment quality  
 - why quality drift is often a stable equilibrium  
+- how escalation decoupling becomes an economic deadweight loss  
 - practical leverage points for improving signal without moralizing or surveillance  
 
 **Primary focus:** incentives, costs, and systemic behavior.
@@ -109,7 +111,7 @@ Covers:
 The components form a closed loop:
 
 - **`llm-ambiguity-eval`** defines *what* evaluators should notice  
-- **`noumenal-triangulator`** defines *when* outputs may proceed, pause, or escalate  
+- **`noumenal-triangulator`** defines *when* outputs may proceed, pause, reroute, or escalate  
 - **`evaluator-qa-escalation-playbook`** defines *how* judgment is maintained under pressure  
 - **`evaluation-economics`** explains *why* these systems drift without structural support  
 
@@ -131,7 +133,7 @@ This work is informed by:
 The intent is to demonstrate readiness for roles involving:
 - LLM evaluation and annotation  
 - reviewer or QA support  
-- escalation handling  
+- escalation handling and governance  
 - guideline refinement  
 - evaluation operations and delivery analytics  
 - trust & safety or policy-adjacent evaluation  
