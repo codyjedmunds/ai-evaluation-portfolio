@@ -72,13 +72,15 @@ No villain required. No incompetence assumed.
 ---
 
 ### Evaluator Labor Signals
-Identifying observable signals *CMs and QA leads can observe **without surveillance** to diagnose incentive stress, including:
+
+Identifying observable system-level signals to diagnose incentive stress, including:
 - sudden drops in escalation
 - compressed rationale variance
 - anomalously fast resolution of ambiguous cases
 - reviewer overconfidence clustering
 
 These are treated as **system signals**, not individual faults.
+
 
 ---
 
@@ -137,4 +139,5 @@ Complex systems do not fail loudly.
 They fail *smoothly*, by rewarding the behaviors that make them feel like they are working.
 
 This folder exists to make those dynamics legible—so that judgment can remain sharp without asking humans to be heroes.
+
 
