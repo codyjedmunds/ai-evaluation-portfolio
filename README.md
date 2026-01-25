@@ -27,6 +27,15 @@ All examples are synthetic and contain no client or proprietary data.
 
 ---
 
+## Key Concepts Introduced
+
+- **Escalation Decoupling** — when escalation continues procedurally after it stops restoring meaning.
+- **Rational Quality Drift** — why degradation emerges as a stable equilibrium under incentives, not evaluator failure.
+- **Observable System Signals (Non-Punitive)** — aggregate indicators of incentive stress that do not rely on individual monitoring.
+- **Evaluator-Side Failure Taxonomy** — structural judgment failures that emerge under scale, ambiguity, and pressure.
+
+---
+
 ## Contents
 
 ### 1. `llm-ambiguity-eval/`
@@ -152,3 +161,4 @@ The intent is to demonstrate readiness for roles involving:
 ## Feedback
 
 Feedback from practitioners working in LLM evaluation, QA, annotation operations, or trust & safety is welcome.
+
