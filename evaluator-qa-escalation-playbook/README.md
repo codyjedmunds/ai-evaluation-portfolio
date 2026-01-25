@@ -26,6 +26,11 @@ Its goals are to:
 - preserve evaluator autonomy without fragmenting standards
 - support audit-safe, defensible decision-making at scale
 
+A core diagnostic emphasized throughout this playbook is **Escalation Decoupling**:  
+the condition where escalation procedures continue to execute correctly, but no longer restore semantic clarity or resolve underlying ambiguity.
+
+When escalation decoupling occurs, additional review increases cost and confidence without improving signal quality. This playbook includes explicit checks and rerouting guidance to detect and interrupt this failure mode.
+
 ---
 
 ## Intended Audience
@@ -88,7 +93,7 @@ Treats efficiency as elastic rather than constant.
 ### `governance_and_audit_safety.md`
 Outlines procedural practices that support:
 - auditability through traceable decisions
-- escalation logging without surveillance
+- escalation logging using non-punitive system signals
 - certifiability of human judgment
 - guideline improvement through feedback loops
 
@@ -128,5 +133,6 @@ The two are designed to work together without duplication.
 ## Feedback
 
 Feedback from practitioners working in LLM evaluation, QA, escalation, or annotation operations is welcome.
+
 
 
