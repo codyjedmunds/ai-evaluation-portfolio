@@ -27,6 +27,23 @@ All examples are synthetic and contain no client or proprietary data.
 
 ---
 
+## Architectural Overview
+
+This portfolio is not a collection of independent documents.
+
+It reflects a single evaluation architecture expressed across multiple resolution layers:
+- axioms and framing
+- economic and incentive pressures
+- operational workflows
+- enforcement and decision artifacts
+
+The canonical system-level specification is maintained in a companion repository:
+
+**AI Eval Lab — Architecture**  
+https://github.com/codyjedmunds/ai-evaluation-lab/blob/main/ARCHITECTURE.md
+
+---
+
 ## Key Concepts Introduced
 
 - **Escalation Decoupling** — when escalation continues procedurally after it stops restoring meaning.
@@ -161,4 +178,3 @@ The intent is to demonstrate readiness for roles involving:
 ## Feedback
 
 Feedback from practitioners working in LLM evaluation, QA, annotation operations, or trust & safety is welcome.
-
