@@ -18,7 +18,7 @@ This repository contains a focused set of documentation artifacts demonstrating 
 
 The emphasis is not on model training, prompt engineering, or automation, but on:
 
-- evaluating model outputs under ambiguity  
+- evaluating outputs under ambiguity  
 - preserving uncertainty rather than prematurely resolving it  
 - maintaining evaluator consistency under pressure  
 - handling reviewer disagreement and escalation fatigue  
@@ -31,13 +31,14 @@ All examples are synthetic and contain no client or proprietary data.
 
 ## Architectural Overview
 
-This portfolio is not a collection of independent documents.
+This repository is not a collection of independent documents.
 
 It reflects a single evaluation architecture expressed across multiple resolution layers:
-- axioms and framing
-- economic and incentive pressures
-- operational workflows
-- enforcement and decision artifacts
+
+- **Axioms and framing**  
+- **Economic and incentive pressures**  
+- **Operational workflows**  
+- **Enforcement and decision artifacts**
 
 The canonical system-level specification is maintained in a companion repository:
 
@@ -48,10 +49,10 @@ https://github.com/codyjedmunds/ai-evaluation-lab/blob/main/ARCHITECTURE.md
 
 ## Key Concepts Introduced
 
-- **Escalation Decoupling** — when escalation continues procedurally after it stops restoring meaning.
-- **Rational Quality Drift** — why degradation emerges as a stable equilibrium under incentives, not evaluator failure.
-- **Observable System Signals (Non-Punitive)** — aggregate indicators of incentive stress that do not rely on individual monitoring.
-- **Evaluator-Side Failure Taxonomy** — structural judgment failures that emerge under scale, ambiguity, and pressure.
+- **Escalation Decoupling** — when escalation continues procedurally after it stops restoring meaning  
+- **Rational Quality Drift** — why degradation emerges as a stable equilibrium under incentives, not evaluator failure  
+- **Observable System Signals (Non-Punitive)** — aggregate indicators of incentive stress that do not rely on individual monitoring  
+- **Evaluator-Side Failure Taxonomy** — structural judgment failures that emerge under scale, ambiguity, and pressure  
 
 ---
 
@@ -59,15 +60,16 @@ https://github.com/codyjedmunds/ai-evaluation-lab/blob/main/ARCHITECTURE.md
 
 ### 1. `llm-ambiguity-eval/`
 
-A qualitative evaluation framework for identifying and scoring LLM failure modes when instructions are incomplete, conflicting, shifting, or time-pressured.
+A qualitative evaluation framework for identifying and scoring failure modes when instructions are incomplete, conflicting, shifting, or time-pressured.
 
 Includes:
+
 - a structured evaluation rubric  
 - calibration guidance  
 - negative examples illustrating common evaluator errors  
 - side-by-side comparisons showing subtle judgment differences  
 
-This section demonstrates how ambiguity can be **surfaced, preserved, and scored** rather than collapsed into narrative clarity.
+This section demonstrates how ambiguity can be surfaced, preserved, and scored rather than collapsed into narrative clarity.
 
 **Primary focus:** epistemic judgment and evaluator calibration.
 
@@ -75,9 +77,9 @@ This section demonstrates how ambiguity can be **surfaced, preserved, and scored
 
 ### 2. `noumenal-triangulator/`
 
-A documentation-first, post-hoc evaluation pipeline demonstrating how fluent but quietly misleading LLM outputs can be audited **after generation**, without rewriting, correcting, or debating the content.
+A documentation-first, post-hoc evaluation pipeline demonstrating how fluent but quietly misleading outputs can be audited after generation, without rewriting, correcting, or debating the content.
 
-The Noumenal Triangulator separates evaluation into three roles:
+The **Noumenal Triangulator** separates evaluation into three roles:
 
 - **Registrar** — neutral extraction of claims, assumptions, constraints, and unresolved ambiguity  
 - **Auditor** — detection of structural failure modes and assignment of severity  
@@ -85,12 +87,11 @@ The Noumenal Triangulator separates evaluation into three roles:
 
 Rather than asking *“Is this answer correct?”*, the system asks:
 
-> *Is this output allowed to matter yet?*
+> **Is this output allowed to matter yet?**
 
-The included worked example demonstrates a common “quiet wrongness” pattern:  
-a fluent response that prematurely resolves ambiguity by assuming a benign regime (low stakes, reversible error).
+The included worked example demonstrates a common *quiet wrongness* pattern — a fluent response that prematurely resolves ambiguity by assuming a benign regime (low stakes, reversible error).
 
-The system converts this into a **traceable CLARIFY decision**, pausing downstream use until missing variables or assumptions are explicitly resolved.
+The system converts this into a traceable **CLARIFY** decision, pausing downstream use until missing variables or assumptions are explicitly resolved.
 
 **Primary focus:** post-hoc evaluation, containment logic, and judgment under ambiguity.
 
@@ -101,16 +102,16 @@ The system converts this into a **traceable CLARIFY decision**, pausing downstre
 A practical playbook for operating evaluation workflows in production environments.
 
 Includes:
+
 - an evaluator-side failure taxonomy  
-- decision flows for resolving vs escalating edge cases  
+- decision flows for resolving vs. escalating edge cases  
 - explicit checks for escalation decoupling  
-- guidance on quality vs throughput trade-offs  
+- guidance on quality vs. throughput trade-offs  
 - example escalation scenarios  
 - reviewer note templates  
 - governance and audit-safety considerations  
 
-This section focuses on what happens **after evaluative rules exist**:  
-guideline gaps, reviewer disagreement, escalation fatigue, and the risk of escalation continuing to execute correctly after it stops restoring clarity.
+This section focuses on what happens *after* evaluative rules exist — guideline gaps, reviewer disagreement, escalation fatigue, and the risk of escalation continuing to execute correctly after it stops restoring clarity.
 
 **Primary focus:** QA operations, escalation control, and production reliability.
 
@@ -123,6 +124,7 @@ An analysis of why quality degradation, false helpfulness, and evaluator disagre
 Rather than treating failures as individual mistakes, this section examines evaluation pipelines as **incentive-constrained systems**.
 
 Covers:
+
 - incentive misalignment in annotation and evaluation environments  
 - the asymmetric cost of false helpfulness  
 - throughput pressure and its effects on judgment quality  
@@ -138,27 +140,29 @@ Covers:
 
 The components form a closed loop:
 
-- **`llm-ambiguity-eval`** defines *what* evaluators should notice  
-- **`noumenal-triangulator`** defines *when* outputs may proceed, pause, reroute, or escalate  
-- **`evaluator-qa-escalation-playbook`** defines *how* judgment is maintained under pressure  
-- **`evaluation-economics`** explains *why* these systems drift without structural support  
+- `llm-ambiguity-eval` defines what evaluators should notice  
+- `noumenal-triangulator` defines when outputs may proceed, pause, reroute, or escalate  
+- `evaluator-qa-escalation-playbook` defines how judgment is maintained under pressure  
+- `evaluation-economics` explains why these systems drift without structural support  
 
 **Judgment → containment → operation → incentives**
 
-This portfolio does not argue for better answers.  
-It argues for **better decisions about when answers are allowed to act on the world**.
+This repository does not argue for better answers.  
+It argues for better decisions about **when answers are allowed to act on the world**.
 
 ---
 
 ## Background & Intent
 
 This work is informed by:
+
 - 8+ years in end-user and production support roles  
 - sustained exposure to ambiguous, high-context issues under time pressure  
 - graduate-level training in applied AI/ML business applications  
 - independent research on LLM evaluation and failure-mode analysis  
 
 The intent is to demonstrate readiness for roles involving:
+
 - LLM evaluation and annotation  
 - reviewer or QA support  
 - escalation handling and governance  
@@ -172,13 +176,11 @@ The intent is to demonstrate readiness for roles involving:
 
 - This repository is documentation-first by design  
 - No scripts, automation, or live tooling are included  
-- The emphasis is on **human judgment**, not system optimization  
+- The emphasis is on human judgment, not system optimization  
 - Governance discussions are procedural, not legal advice  
 
 ---
 
 ## Feedback
 
-Feedback from practitioners working in LLM evaluation, QA, annotation operations, or trust & safety is welcome.
-
-
+Feedback from practitioners working in review, governance, reliability, or trust & safety roles, as well as LLM evaluation, QA, or annotation operations, is welcome.
