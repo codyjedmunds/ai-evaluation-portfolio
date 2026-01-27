@@ -2,13 +2,13 @@
 
 A collection of documentation artifacts demonstrating **evaluation design, judgment under ambiguity, and escalation control** in complex review and decision-making systems.
 
-This portfolio focuses on a problem that increasingly defines modern AI systems:
+This work focuses on a problem that increasingly defines modern AI systems:
 
 > **Failures now arise less from incorrect answers than from answers being allowed to matter when they shouldn’t.**
 
-Rather than optimizing model outputs, this work examines how ambiguity is collapsed, authority is assumed, escalation becomes decoupled, and confidence substitutes for structure — and how evaluators decide when to allow, pause, reroute, or escalate model responses.
+Rather than optimizing outputs, the materials here examine how ambiguity is collapsed, authority is assumed, escalation becomes decoupled, and confidence substitutes for structure — and how evaluators decide when to allow, pause, reroute, or escalate responses.
 
-While this portfolio is grounded in AI evaluation contexts, the failure modes and control patterns documented here apply broadly to complex review, escalation, and decision-making systems.
+While this repository is grounded in AI evaluation contexts, the failure modes and control patterns documented here apply broadly to complex review, escalation, and decision-making systems.
 
 ---
 
@@ -180,4 +180,5 @@ The intent is to demonstrate readiness for roles involving:
 ## Feedback
 
 Feedback from practitioners working in LLM evaluation, QA, annotation operations, or trust & safety is welcome.
+
 
